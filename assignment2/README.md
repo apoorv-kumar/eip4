@@ -1,4 +1,4 @@
-#Epoch results
+# Epoch results
 Train on 60000 samples, validate on 10000 samples
 Epoch 1/20
 
@@ -81,10 +81,10 @@ Epoch 20/20
 Epoch 00020: LearningRateScheduler setting learning rate to 0.0004214667.
 60000/60000 [==============================] - 8s 136us/step - loss: 0.0909 - acc: 0.9533 - val_loss: 0.0164 - val_acc: 0.9952
 
-#Model evaluation result
+# Model evaluation result
 [0.01644214096760843, 0.9952]
 
-#Strategy
+# Strategy
 Results could be achieved without major additions to the previous (eigth) model. There were unnecessary kernels later in the process which I reduced from 16 to 15. This lead to a reduction of total params to 15070.
 
 In the initial runs I saw some overfitting because of which validation accuracy wasn't increasing in proportion to training accuracy until epoch 14/15 so I increased the dropouts marginally to .11 . This stabalized the results after epoch 11.
