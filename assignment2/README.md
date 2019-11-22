@@ -85,7 +85,7 @@ Epoch 00020: LearningRateScheduler setting learning rate to 0.0004214667.
 [0.01644214096760843, 0.9952]
 
 # Strategy
-Results could be achieved without major additions to the previous (eigth) model. There were unnecessary kernels later in the process which I reduced from 16 to 15. This lead to a reduction of total params to 15070.
+Results could be achieved without major additions to the previous (eigth) model. There were unnecessary kernels later in the process which I reduced from 16 to 15. This lead to a reduction of total params to 15070. Also I introduced use_bias=False for all convolutional layers.
 
 In the initial runs I saw some overfitting because of which validation accuracy wasn't increasing in proportion to training accuracy until epoch 14/15 so I increased the dropouts marginally to .11 . This stabalized the results after epoch 11.
 
