@@ -1,5 +1,5 @@
 # Accuracy of base network: 82.28
-
+<pre>
 Epoch 42/50
 390/390 [==============================] - 7s 17ms/step - loss: 0.3279 - acc: 0.8916 - val_loss: 0.5902 - val_acc: 0.8262
 Epoch 43/50
@@ -18,40 +18,41 @@ Epoch 49/50
 390/390 [==============================] - 7s 17ms/step - loss: 0.3132 - acc: 0.8963 - val_loss: 0.5925 - val_acc: 0.8217
 Epoch 50/50
 390/390 [==============================] - 7s 17ms/step - loss: 0.3040 - acc: 0.8999 - val_loss: 0.6163 - val_acc: 0.8228
-
+</pre>
 
 # Model defintion:
-model2.add(SeparableConv2D(64, 3, 3, activation='relu', border_mode='same', input_shape=(32,32,3))) # out: 32*32*64  , RF: 3
+<pre>
+model2.add(SeparableConv2D(64, 3, 3, activation='relu', border_mode='same', input_shape=(32,32,3))) # out: 32x32x64  , RF: 3
 model2.add(Activation('relu'))
-model2.add(SeparableConv2D(64, 3, 3)) # out: 30*30*64, RF:5
+model2.add(SeparableConv2D(64, 3, 3)) # out: 30x30x64, RF:5
 model2.add(Activation('relu'))
-model2.add(MaxPooling2D(pool_size=(2,2))) # out: 15*15*64, RF 6
+model2.add(MaxPooling2D(pool_size=(2,2))) # out: 15x15x64, RF 6
 model2.add(Dropout(0.1))
 model2.add(BatchNormalization())
 
-model2.add(SeparableConv2D(114, 3, 3, border_mode='same')) # out: 15*15*114, RF: 10
+model2.add(SeparableConv2D(114, 3, 3, border_mode='same')) # out: 15x15x114, RF: 10
 model2.add(Activation('relu'))
-model2.add(SeparableConv2D(114, 3, 3)) # out: 13*13*114, RF: 14
+model2.add(SeparableConv2D(114, 3, 3)) # out: 13x13x114, RF: 14
 model2.add(Activation('relu'))
-model2.add(MaxPooling2D(pool_size=(2,2))) # out: 6*6*114, RF: 16
+model2.add(MaxPooling2D(pool_size=(2,2))) # out: 6x6x114, RF: 16
 model2.add(Dropout(.1))
 model2.add(BatchNormalization())
 
-model2.add(SeparableConv2D(192, 3, 3, border_mode='same')) # out: 6*6*192, RF : 24
+model2.add(SeparableConv2D(192, 3, 3, border_mode='same')) # out: 6x6x192, RF : 24
 model2.add(Activation('relu'))
-model2.add(SeparableConv2D(192, 3, 3)) # out: 4*4*192, RF: 32
+model2.add(SeparableConv2D(192, 3, 3)) # out: 4x4x192, RF: 32
 model2.add(Activation('relu'))
-model2.add(MaxPooling2D(pool_size=(2,2))) # out: 2*2*192, 36
+model2.add(MaxPooling2D(pool_size=(2,2))) # out: 2x2x192, 36
 
 model2.add(Flatten())
 
 model2.add(Dense(num_classes, activation='softmax'))
 model2.compile(optimizer=Adam(lr=.003), loss='categorical_crossentropy', metrics=['accuracy'])
-
+</pre>
 # 50 epoch logs:
 
 ### Max test accuracy: 80.86
-
+<pre>
 Epoch 1/50
 390/390 [==============================] - 34s 88ms/step - loss: 1.6672 - acc: 0.3872 - val_loss: 1.4314 - val_acc: 0.4876
 Epoch 2/50
@@ -153,3 +154,5 @@ Epoch 49/50
 Epoch 50/50
 390/390 [==============================] - 28s 73ms/step - loss: 0.4991 - acc: 0.8226 - val_loss: 0.7044 - val_acc: 0.7830
 Model 2 took 1439.60 seconds to train
+
+</pre>
