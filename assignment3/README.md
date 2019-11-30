@@ -21,34 +21,32 @@ Epoch 50/50
 
 
 # Model defintion:
-
-model2.add(SeparableConv2D(64, 3, 3, activation='relu', border_mode='same', input_shape=(32,32,3)))
+model2.add(SeparableConv2D(64, 3, 3, activation='relu', border_mode='same', input_shape=(32,32,3))) # out: 32*32*64  , RF: 3
 model2.add(Activation('relu'))
-model2.add(SeparableConv2D(64, 3, 3))
+model2.add(SeparableConv2D(64, 3, 3)) # out: 30*30*64, RF:5
 model2.add(Activation('relu'))
-model2.add(MaxPooling2D(pool_size=(2,2)))
+model2.add(MaxPooling2D(pool_size=(2,2))) # out: 15*15*64, RF 6
 model2.add(Dropout(0.1))
 model2.add(BatchNormalization())
 
-model2.add(SeparableConv2D(114, 3, 3, border_mode='same'))
+model2.add(SeparableConv2D(114, 3, 3, border_mode='same')) # out: 15*15*114, RF: 10
 model2.add(Activation('relu'))
-model2.add(SeparableConv2D(114, 3, 3))
+model2.add(SeparableConv2D(114, 3, 3)) # out: 13*13*114, RF: 14
 model2.add(Activation('relu'))
-model2.add(MaxPooling2D(pool_size=(2,2)))
+model2.add(MaxPooling2D(pool_size=(2,2))) # out: 6*6*114, RF: 16
 model2.add(Dropout(.1))
 model2.add(BatchNormalization())
 
-model2.add(SeparableConv2D(192, 3, 3, border_mode='same'))
+model2.add(SeparableConv2D(192, 3, 3, border_mode='same')) # out: 6*6*192, RF : 24
 model2.add(Activation('relu'))
-model2.add(SeparableConv2D(192, 3, 3))
+model2.add(SeparableConv2D(192, 3, 3)) # out: 4*4*192, RF: 32
 model2.add(Activation('relu'))
-model2.add(MaxPooling2D(pool_size=(2,2)))
+model2.add(MaxPooling2D(pool_size=(2,2))) # out: 2*2*192, 36
 
 model2.add(Flatten())
 
 model2.add(Dense(num_classes, activation='softmax'))
 model2.compile(optimizer=Adam(lr=.003), loss='categorical_crossentropy', metrics=['accuracy'])
-
 
 # 50 epoch logs:
 
