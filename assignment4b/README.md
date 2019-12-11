@@ -2,6 +2,7 @@ For some reason the training was super slow (30mins per epoch) because of which 
 
 I was seeing overfitting in early experiments (even after using basic transformation augmentation) so I added a random eraser.
 
+UPDATE: I figured out that I wasn't using the GPU runtime causing super slow training. I used the model previously trained till 38 epochs and 85.2% validation accuracy and ran it with reduced learning rate of 10e-4. This gave me a max validation accuracy of 90.4%.
 
 ### Max test accuracy: 84.46 after 23 epochs
 <pre>
@@ -43,6 +44,71 @@ Epoch 00024: val_acc did not improve from 0.84460
 Epoch 25/50
 Learning rate:  0.001
 460/782 [================>.............] - ETA: 9:47 - loss: 0.7469 - acc: 0.8286
+
+</pre>
+
+
+### Updated after 50 epochs
+<pre>
+Total params: 2,147,554
+Trainable params: 2,144,138
+Non-trainable params: 3,416
+__________________________________________________________________________________________________
+ResNet18v1
+Using real-time data augmentation.
+Epoch 1/50
+Learning rate:  0.0001
+782/782 [==============================] - 123s 157ms/step - loss: 0.5882 - acc: 0.8856 - val_loss: 0.5848 - val_acc: 0.8915
+
+Epoch 00001: val_acc improved from -inf to 0.89150, saving model to /content/saved_models/cifar10_ResNet18v1_model.001.h5
+Epoch 2/50
+Learning rate:  0.0001
+782/782 [==============================] - 111s 142ms/step - loss: 0.5559 - acc: 0.8956 - val_loss: 0.5543 - val_acc: 0.8969
+
+Epoch 00002: val_acc improved from 0.89150 to 0.89690, saving model to /content/saved_models/cifar10_ResNet18v1_model.002.h5
+Epoch 3/50
+Learning rate:  0.0001
+782/782 [==============================] - 89s 114ms/step - loss: 0.5364 - acc: 0.9005 - val_loss: 0.5635 - val_acc: 0.8966
+
+Epoch 00003: val_acc did not improve from 0.89690
+Epoch 4/50
+Learning rate:  0.0001
+782/782 [==============================] - 89s 114ms/step - loss: 0.5211 - acc: 0.9049 - val_loss: 0.5480 - val_acc: 0.8994
+
+Epoch 00004: val_acc improved from 0.89690 to 0.89940, saving model to /content/saved_models/cifar10_ResNet18v1_model.004.h5
+Epoch 5/50
+Learning rate:  0.0001
+782/782 [==============================] - 87s 111ms/step - loss: 0.5081 - acc: 0.9068 - val_loss: 0.5327 - val_acc: 0.9007
+
+Epoch 00005: val_acc improved from 0.89940 to 0.90070, saving model to /content/saved_models/cifar10_ResNet18v1_model.005.h5
+Epoch 6/50
+Learning rate:  0.0001
+782/782 [==============================] - 86s 111ms/step - loss: 0.4973 - acc: 0.9094 - val_loss: 0.5337 - val_acc: 0.8991
+
+Epoch 00006: val_acc did not improve from 0.90070
+Epoch 7/50
+Learning rate:  0.0001
+782/782 [==============================] - 90s 115ms/step - loss: 0.4937 - acc: 0.9091 - val_loss: 0.5397 - val_acc: 0.8984
+
+Epoch 00007: val_acc did not improve from 0.90070
+Epoch 8/50
+Learning rate:  0.0001
+782/782 [==============================] - 88s 113ms/step - loss: 0.4831 - acc: 0.9119 - val_loss: 0.5134 - val_acc: 0.9026
+
+Epoch 00008: val_acc improved from 0.90070 to 0.90260, saving model to /content/saved_models/cifar10_ResNet18v1_model.008.h5
+Epoch 9/50
+Learning rate:  0.0001
+782/782 [==============================] - 91s 117ms/step - loss: 0.4762 - acc: 0.9122 - val_loss: 0.5142 - val_acc: 0.9020
+
+Epoch 00009: val_acc did not improve from 0.90260
+Epoch 10/50
+Learning rate:  0.0001
+782/782 [==============================] - 86s 111ms/step - loss: 0.4702 - acc: 0.9138 - val_loss: 0.5184 - val_acc: 0.9004
+
+Epoch 00010: val_acc did not improve from 0.90260
+Epoch 11/50
+Learning rate:  0.0001
+782/782 [==============================] - 89s 114ms/step - loss: 0.4644 - acc: 0.9168 - val_loss: 0.5107 - val_acc: 0.9043
 
 </pre>
 
